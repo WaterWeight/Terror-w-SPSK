@@ -4,7 +4,7 @@ local DM = {}
 local Players = game:GetService("Players")
 -- Local
 local player = Players.LocalPlayer
-local character = player.Character
+local character = player.Character or player.CharacterAdded:Wait
 local humanoid = character:WaitForChild('Humanoid')
 local humanoidRootPart = character:WaitForChild('HumanoidRootPart')
 local torso = character:WaitForChild('Torso')
