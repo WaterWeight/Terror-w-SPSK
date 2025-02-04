@@ -22,7 +22,7 @@ player.CharacterAdded:Connect(function(character)
     viewBobbingConnection = RunService.RenderStepped:Connect(ViewBobbing.bob)
 end)
 player.CharacterRemoving:Connect(function(character)
-    viewBobbingConnection:Disconnect
+    viewBobbingConnection:Disconnect()
 end)
 
 -- Prompt Handling
