@@ -26,7 +26,3 @@ player.CharacterRemoving:Connect(function(character)
 end)
 
 -- Prompt Handling
-ProximityPromptService.PromptShown:Connect()
-ProximityPromptService.PromptHidden:Connect()
-ProximityPromptService.PromptButtonHoldBegan:Connect()
-ProximityPromptService.PromptButtonHoldEnded:Connect()
