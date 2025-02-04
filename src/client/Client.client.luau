@@ -1,5 +1,4 @@
 --!strict
-task.wait(3)
 -- Service
 local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
