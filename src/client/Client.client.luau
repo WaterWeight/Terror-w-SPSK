@@ -16,7 +16,7 @@ local character = player.Character or player.CharacterAdded:Wait()
 local viewBobbingConnection
 
 -- Events
-RunService.RenderStepped:Connect(DirectionalMovement.stepped)
+--RunService.RenderStepped:Connect(DirectionalMovement.stepped)
 
 player.CharacterAdded:Connect(function(character)
     viewBobbingConnection = RunService.RenderStepped:Connect(ViewBobbing.bob)
