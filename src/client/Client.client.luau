@@ -13,10 +13,17 @@ local ViewBobbing = require(ReplicatedStorage.Shared.ViewBobbing)
 local player = Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 
+local viewBobbingConnection
+
 -- Events
 RunService.RenderStepped:Connect(DirectionalMovement.stepped)
 
-RunService.RenderStepped:Connect(ViewBobbing.bob)
+player.CharacterAdded:Connect(function(character)
+    viewBobbingConnection = RunService.RenderStepped:Connect(ViewBobbing.bob)
+end)
+player.CharacterRemoving:Connect(function(character)
+    viewBobbingConnection:Disconnect
+end)
 
 -- Prompt Handling
 ProximityPromptService.PromptShown:Connect()
