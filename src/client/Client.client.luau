@@ -5,14 +5,14 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local ProximityPromptService = game:GetService("ProximityPromptService")
 -- Dependencies
-local directionalMovement = require(ReplicatedStorage.Shared.directionalMovement)
+local DirectionalMovement = require(ReplicatedStorage.Shared.DirectionalMovement)
 
 -- Local
 local player = Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 
 -- Events
-RunService.RenderStepped:Connect(directionalMovement.stepped)
+RunService.RenderStepped:Connect(DirectionalMovement.stepped)
 
 -- Prompt Handling
 ProximityPromptService.PromptShown:Connect()
