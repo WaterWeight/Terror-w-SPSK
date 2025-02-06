@@ -1,4 +1,4 @@
-task.wait(3) 
+task.wait(2) 
 local Camera = workspace.CurrentCamera
 local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
