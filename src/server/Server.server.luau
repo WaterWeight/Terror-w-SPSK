@@ -10,8 +10,12 @@ local ByteNet = require(ReplicatedStorage.Dependencies.ByteNet)
 -- Fires when player joins the game
 Players.PlayerAdded:Connect(function(player)
 
-    -- When removing character (player dies)
-    player.CharacterRemoving:Connect(function()
-        player:Kick("You've died!!!! stupid ass fucker")
+    -- When adding charactr (player spawns in)
+    player.CharacterAdded:Connect(function(character)
+
+        -- When humanoid fires the .Died event (player died)
+        character.Humanoid.Died:Connect(function()
+            player:Kick("You've died stupid ass nigga")
+        end)
     end)
 end)
