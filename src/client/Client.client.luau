@@ -22,19 +22,17 @@ local sprintDebounce = false
 RunService.RenderStepped:Connect(DirectionalMovement.stepped)
 
 
-UserInputService.InputBegan:Connect(function(_input, _gameProcessedEvent)
+UserInputService.InputBegan:Connect(function(input, _gameProcessedEvent)
     if _gameProcessedEvent then return end
-    print("Client - Input Began" .. _input)
 
-    local code = keyBinds[_input.KeyCode]
+    local code = keyBinds[input.KeyCode]
     if code then
         print(code)
     end
 end)
-UserInputService.InputEnded:Connect(function(_input, _gameProcessedEvent)
+UserInputService.InputEnded:Connect(function(input, _gameProcessedEvent)
     if _gameProcessedEvent then return end
-    print("Client - Input Ended" .. _input)
-    local code = keyBinds[_input.KeyCode]
+    local code = keyBinds[input.KeyCode]
     if code then
         print(code)
     end
