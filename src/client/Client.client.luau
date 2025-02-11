@@ -12,7 +12,7 @@ local DirectionalMovement = require(ReplicatedStorage.Shared.DirectionalMovement
 local player = Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 
-local keyCodes = {
+local keyBinds = {
     [Enum.KeyCode.LeftShift] = "Sprint",
 }
 
@@ -25,10 +25,19 @@ RunService.RenderStepped:Connect(DirectionalMovement.stepped)
 UserInputService.InputBegan:Connect(function(_input, _gameProcessedEvent)
     if _gameProcessedEvent then return end
     print("Client - Input Began" .. _input)
+
+    local code = keyBinds[_input.KeyCode]
+    if code then
+        print(code)
+    end
 end)
 UserInputService.InputEnded:Connect(function(_input, _gameProcessedEvent)
     if _gameProcessedEvent then return end
     print("Client - Input Ended" .. _input)
+    local code = keyBinds[_input.KeyCode]
+    if code then
+        print(code)
+    end
 end)
 
 player.CharacterRemoving:Connect(function(character)
