@@ -13,7 +13,7 @@ local player = Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 
 local keyCodes = {
-    
+    [Enum.KeyCode.LeftShift] = "Sprint",
 }
 
 local sprintDebounce = false
@@ -23,9 +23,11 @@ RunService.RenderStepped:Connect(DirectionalMovement.stepped)
 
 
 UserInputService.InputBegan:Connect(function(_input, _gameProcessedEvent)
+    if _gameProcessedEvent then return end
     print("Client - Input Began" .. _input)
 end)
 UserInputService.InputEnded:Connect(function(_input, _gameProcessedEvent)
+    if _gameProcessedEvent then return end
     print("Client - Input Ended" .. _input)
 end)
 
