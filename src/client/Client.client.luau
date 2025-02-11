@@ -22,9 +22,9 @@ local sprintDebounce = false
 local crouchDebounce = false
 -- Functions
 local function sprint(status : boolean)
-    if sprintDebounce == true then return end
     if status == true then
         -- Running
+        if sprintDebounce == true then return end
         humanoid.WalkSpeed = 45
         sprintDebounce = true
     else
