@@ -24,7 +24,7 @@ local crouchDebounce = false
 local function sprint(status : boolean)
     if status == true then
         -- Running
-        humanoid.WalkSpeed = 30
+        humanoid.WalkSpeed = 45
     else
         -- NO RUNNING1!! NO NO NO NO NO
         humanoid.WalkSpeed = 16
