@@ -41,6 +41,8 @@ UserInputService.InputBegan:Connect(function(input : Instance, _gameProcessedEve
         print(code .. "Input Began")
         if code == "Sprint" then
             sprint(true)
+        elseif code == "Crouch" then
+
         end
     end
 end)
@@ -51,6 +53,8 @@ UserInputService.InputEnded:Connect(function(input : Instance, _gameProcessedEve
         print(code .. "Input Ended")
         if code == "Sprint" then
             sprint(false)
+        elseif code == "Crouch" then
+            
         end
     end
 end)
