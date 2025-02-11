@@ -13,6 +13,8 @@ local player = Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:FindFirstChildOfClass("Humanoid")
 
+local sprintCooldown = 2
+
 local keyBinds = {
     [Enum.KeyCode.LeftShift] = "Sprint",
     [Enum.KeyCode.LeftControl] = "Crouch"
@@ -25,12 +27,12 @@ local function sprint(status : boolean)
     if status == true then
         -- Running
         if sprintDebounce == true then return end
-        humanoid.WalkSpeed = 45
+        humanoid.WalkSpeed = 18
         sprintDebounce = true
     else
         -- NO RUNNING1!! NO NO NO NO NO
-        humanoid.WalkSpeed = 16
-        task.wait(2)
+        humanoid.WalkSpeed = 10
+        task.wait(sprintCooldown)
         sprintDebounce = false
     end
 end
