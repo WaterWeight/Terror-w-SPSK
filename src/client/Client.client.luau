@@ -30,7 +30,7 @@ local function sprint(status : boolean)
     else
         -- NO RUNNING1!! NO NO NO NO NO
         humanoid.WalkSpeed = 16
-        task.wait(1)
+        task.wait(2)
         sprintDebounce = false
     end
 end
