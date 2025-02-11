@@ -39,6 +39,12 @@ end
 
 local function crouch(status : boolean)
     if crouchDebounce == true then return end
+
+    if status == true then
+        
+    else
+        
+    end
 end
 -- Events
 RunService.RenderStepped:Connect(DirectionalMovement.stepped)
@@ -52,7 +58,7 @@ UserInputService.InputBegan:Connect(function(input : Instance, _gameProcessedEve
         if code == "Sprint" then
             sprint(true)
         elseif code == "Crouch" then
-
+            crouch(true)
         end
     end
 end)
@@ -64,12 +70,12 @@ UserInputService.InputEnded:Connect(function(input : Instance, _gameProcessedEve
         if code == "Sprint" then
             sprint(false)
         elseif code == "Crouch" then
-            
+            crouch(false)
         end
     end
 end)
 
-player.CharacterRemoving:Connect(function(character)
+player.CharacterRemoving:Connect(function(character : Model?)
     print("Client - Removing Character")
     sprintDebounce = false
     crouchDebounce = false
