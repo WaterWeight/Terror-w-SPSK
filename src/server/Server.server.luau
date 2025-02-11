@@ -15,7 +15,7 @@ Players.PlayerAdded:Connect(function(player)
 
         -- When humanoid fires the .Died event (player died)
         character.Humanoid.Died:Connect(function()
-            player:Kick("You've died stupid ass nigga")
+            player:Kick("You've died stupid guy")
         end)
     end)
 end)
