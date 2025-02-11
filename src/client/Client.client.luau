@@ -22,13 +22,21 @@ local sprintDebounce = false
 local crouchDebounce = false
 -- Functions
 local function sprint(status : boolean)
+    if sprintDebounce == true then return end
     if status == true then
         -- Running
         humanoid.WalkSpeed = 45
+        sprintDebounce = true
     else
         -- NO RUNNING1!! NO NO NO NO NO
         humanoid.WalkSpeed = 16
+        task.wait(1)
+        sprintDebounce = false
     end
+end
+
+local function crouch(status : boolean)
+    if crouchDebounce == true then return end
 end
 -- Events
 RunService.RenderStepped:Connect(DirectionalMovement.stepped)
