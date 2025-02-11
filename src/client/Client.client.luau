@@ -12,16 +12,25 @@ local DirectionalMovement = require(ReplicatedStorage.Shared.DirectionalMovement
 local player = Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 
-local viewBobbingConnection
+local keyCodes = {
+    
+}
+
+local sprintDebounce = false
 
 -- Events
 RunService.RenderStepped:Connect(DirectionalMovement.stepped)
 
 
-UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
-    
+UserInputService.InputBegan:Connect(function(_input, _gameProcessedEvent)
+    print("Client - Input Began" .. _input)
 end)
-UserInputService.InputEnded:Connect(function(input, gameProcessedEvent)
-    
+UserInputService.InputEnded:Connect(function(_input, _gameProcessedEvent)
+    print("Client - Input Ended" .. _input)
+end)
+
+player.CharacterRemoving:Connect(function(character)
+    print("Client - Removing Character")
+    sprintDebounce = false
 end)
 -- Prompt Handling
