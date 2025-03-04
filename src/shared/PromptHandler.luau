@@ -12,6 +12,10 @@ local Items = ReplicatedStorage.Shared.Prompts
 
 -- Local
 local player = Players.LocalPlayer
+local promptCooldown = {
+    false,
+    .5
+}
 
 local Prompt = {}
 
@@ -69,7 +73,14 @@ function Prompt.PromptHoldBegan(prompt : ProximityPrompt, player : Player)
     end
 
     local function promptTriggered()
-        print(prompt.Name .. " Prompt triggered")
+        if promptCooldown[1] ~= true then
+            promptCooldown[1] = true
+
+            print(prompt.Name .. " Prompt triggered")
+
+            task.wait(promptCooldown[2])
+            promptCooldown[1] = false
+        end
     end
 
     ProximityPromptService.PromptButtonHoldEnded:Connect(promptHoldEnded)
