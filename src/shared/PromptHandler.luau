@@ -58,6 +58,8 @@ function Prompt.PromptHoldBegan(prompt : ProximityPrompt, player : Player)
     local guiMain : Frame = billboardGui:FindFirstChild("Main")
     local fillFrame : Frame = guiMain:FindFirstChild("Fill")
 
+    local triggerConnection
+
     local fillTween = TweenService:Create(fillFrame, TweenInfo.new(prompt.HoldDuration), {Size = UDim2.fromScale(1,1)})
     fillTween:Play()
 
@@ -66,6 +68,8 @@ function Prompt.PromptHoldBegan(prompt : ProximityPrompt, player : Player)
 
         local unFillTween = TweenService:Create(fillFrame, TweenInfo.new(.1), {Size = UDim2.fromScale(1,0)})
         unFillTween:Play()
+
+        triggerConnection:Disconnect()
     end
 
     local function promptTriggered()
@@ -73,7 +77,7 @@ function Prompt.PromptHoldBegan(prompt : ProximityPrompt, player : Player)
     end
 
     ProximityPromptService.PromptButtonHoldEnded:Connect(promptHoldEnded)
-    prompt.Triggered:Connect(promptTriggered)
+    triggerConnection = prompt.Triggered:Connect(promptTriggered)
 end
 
 return Prompt
