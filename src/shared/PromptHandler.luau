@@ -68,7 +68,12 @@ function Prompt.PromptHoldBegan(prompt : ProximityPrompt, player : Player)
         unFillTween:Play()
     end
 
+    local function promptTriggered()
+        print(prompt.Name .. " Prompt triggered")
+    end
+
     ProximityPromptService.PromptButtonHoldEnded:Connect(promptHoldEnded)
+    prompt.Triggered:Connect(promptTriggered)
 end
 
 return Prompt
