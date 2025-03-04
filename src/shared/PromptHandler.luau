@@ -9,6 +9,7 @@ local TweenService = game:GetService("TweenService")
 local Players = game:GetService("Players")
 
 local Items = ReplicatedStorage.Shared.Prompts
+local Packets = require(ReplicatedStorage.Shared.Packets)
 
 -- Local
 local player = Players.LocalPlayer
@@ -77,6 +78,10 @@ function Prompt.PromptHoldBegan(prompt : ProximityPrompt, player : Player)
             promptCooldown[1] = true
 
             print(prompt.Name .. " Prompt triggered")
+
+            Packets.promptTriggered.send({
+                promptName = prompt.Name
+            })
 
             task.wait(promptCooldown[2])
             promptCooldown[1] = false
