@@ -9,27 +9,31 @@ local ProximityPromptService = game:GetService("ProximityPromptService")
 local Prompt = {}
 
 function Prompt.PromptShown(prompt : ProximityPrompt, inputType : Enum.ProximityPromptInputType)
-    local promptParent = prompt.Parent
-    local billboardGui = promptParent:FindFirstChild("Cosmetic") :: BillboardGui
-    local guiMain = billboardGui:FindFirstChild("Main") :: Frame
-    local fillFrame = guiMain:FindFirstChild("Fill") :: Frame
+    local promptParent : BasePart = prompt.Parent
+    local billboardGui : BillboardGui = promptParent:FindFirstChild("Cosmetic")
+    local guiMain : Frame = billboardGui:FindFirstChild("Main")
+    local fillFrame : Frame = guiMain:FindFirstChild("Fill")
 
     -- Text
-    local keyCode = guiMain:FindFirstChild("KeyCode") :: TextLabel
-    local objectText = guiMain:FindFirstChild("ObjectText") :: TextLabel
+    local keyCode : TextLabel = guiMain:FindFirstChild("KeyCode")
+    local objectText : TextLabel = guiMain:FindFirstChild("ObjectText")
 
     billboardGui.Enabled = true
+
+    -- Beam operations
+
+    local beam : Beam = promptParent:FindFirstChild("Beam")
 end
 
 function Prompt.PromptHidden(prompt : ProximityPrompt)
-    local promptParent = prompt.Parent
-    local billboardGui = promptParent:FindFirstChild("Cosmetic") :: BillboardGui
-    local guiMain = billboardGui:FindFirstChild("Main") :: Frame
-    local fillFrame = guiMain:FindFirstChild("Fill") :: Frame
+    local promptParent : BasePart = prompt.Parent
+    local billboardGui : BillboardGui = promptParent:FindFirstChild("Cosmetic")
+    local guiMain : Frame = billboardGui:FindFirstChild("Main")
+    local fillFrame : Frame = guiMain:FindFirstChild("Fill")
 
     -- Text
-    local keyCode = guiMain:FindFirstChild("KeyCode") :: TextLabel
-    local objectText = guiMain:FindFirstChild("ObjectText") :: TextLabel
+    local keyCode : TextLabel = guiMain:FindFirstChild("KeyCode")
+    local objectText : TextLabel = guiMain:FindFirstChild("ObjectText")
 
     billboardGui.Enabled = false
 end
