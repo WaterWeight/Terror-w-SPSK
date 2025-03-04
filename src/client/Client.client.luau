@@ -85,3 +85,5 @@ end)
 
 ProximityPromptService.PromptShown:Connect(PromptHandler.PromptShown)
 ProximityPromptService.PromptHidden:Connect(PromptHandler.PromptHidden)
+
+ProximityPromptService.PromptButtonHoldBegan:Connect(PromptHandler.PromptHoldBegan)
