@@ -84,5 +84,3 @@ end)
 -- Prompt Handling
 
 ProximityPromptService.PromptShown:Connect(PromptHandler.PromptShown)
-
--- Test
