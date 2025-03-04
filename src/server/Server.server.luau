@@ -20,7 +20,7 @@ Players.PlayerAdded:Connect(function(player : Player)
 	local cloneGUI = ReplicatedStorage.Assets["LoadingGui-Fake"]:Clone()
 	cloneGUI.Parent = player.PlayerGui
 
-    -- When adding charactr (player spawns in)
+    -- When adding character (player spawns in)
     player.CharacterAdded:Connect(function(character : Model?)
 
         -- When humanoid fires the .Died event (player died)
