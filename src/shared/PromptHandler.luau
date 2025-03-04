@@ -30,6 +30,8 @@ function Prompt.PromptShown(prompt : ProximityPrompt, inputType : Enum.Proximity
 
     local beam : Beam = promptParent:FindFirstChild("Beam")
     beam.Attachment1 = character:FindFirstChild("HumanoidRootPart"):FindFirstChild("RootAttachment")
+
+    beam.Enabled = false
 end
 
 function Prompt.PromptHidden(prompt : ProximityPrompt)
