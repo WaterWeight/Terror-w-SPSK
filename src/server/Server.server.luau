@@ -4,6 +4,13 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 -- Dependencies
 local ByteNet = require(ReplicatedStorage.Dependencies.ByteNet)
+local Packets = require(ReplicatedStorage.Shared.Packets)
+
+-- Functions
+
+local function promptTriggered(data : {}, player : Player)
+    print(data)
+end
 
 -- Events
 
@@ -22,3 +29,7 @@ Players.PlayerAdded:Connect(function(player : Player)
         end)
     end)
 end)
+
+-- Prompts
+
+Packets.promptTriggered.listen(promptTriggered)
