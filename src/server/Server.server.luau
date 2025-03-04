@@ -7,7 +7,7 @@ local Players = game:GetService("Players")
 local ByteNet = require(ReplicatedStorage.Dependencies.ByteNet)
 local Packets = require(ReplicatedStorage.Shared.Packets)
 
-local PromptItems = require(ServerStorage.Storage.Prompts)
+local PromptItems = ServerStorage.Storage.Prompts
 
 -- Functions
 
