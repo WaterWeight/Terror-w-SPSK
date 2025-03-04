@@ -21,4 +21,4 @@ Players.PlayerAdded:Connect(function(player : Player)
             player:Kick("You've died stupid fellow")
         end)
     end)
-end)
+end) --twatwata
