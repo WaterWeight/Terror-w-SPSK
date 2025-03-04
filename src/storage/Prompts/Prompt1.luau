@@ -2,7 +2,7 @@
 
 local Item = {}
 
-function Item.Activated()
+function Item.Activated(data : {})
     print("Prompt1.luau activated")
     print("Sigma sigma boy sigma boy sigma boy")
 end
