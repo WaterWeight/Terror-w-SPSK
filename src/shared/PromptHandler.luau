@@ -50,7 +50,7 @@ function Prompt.PromptHidden(prompt : ProximityPrompt)
     beam.Enabled = false
 end
 
-function promptHoldBegan(prompt : ProximityPrompt, player : Player)
+function Prompt.promptHoldBegan(prompt : ProximityPrompt, player : Player)
     local promptParent : BasePart = prompt.Parent
     local billboardGui : BillboardGui = promptParent:FindFirstChild("Cosmetic")
     local guiMain : Frame = billboardGui:FindFirstChild("Main")
