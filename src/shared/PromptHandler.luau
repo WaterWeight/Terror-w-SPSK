@@ -45,6 +45,10 @@ function Prompt.PromptHidden(prompt : ProximityPrompt)
     local objectText : TextLabel = guiMain:FindFirstChild("ObjectText")
 
     billboardGui.Enabled = false
+
+    local beam : Beam = promptParent:FindFirstChild("Beam")
+    beam.Attachment1 = nil
+    beam.Enabled = false
 end
 
 function promptButtonHold(prompt : ProximityPrompt, player : Player)
