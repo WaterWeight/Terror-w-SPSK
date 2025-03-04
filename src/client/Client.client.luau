@@ -7,7 +7,7 @@ local ProximityPromptService = game:GetService("ProximityPromptService")
 local UserInputService = game:GetService("UserInputService")
 -- Dependencies
 local DirectionalMovement = require(ReplicatedStorage.Shared.DirectionalMovement)
-local PromptHandler = require(ReplicatedStorage.PromptHandler)
+local PromptHandler = require(ReplicatedStorage.Shared.PromptHandler)
 
 -- Local
 local player = Players.LocalPlayer
