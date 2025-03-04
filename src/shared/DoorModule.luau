@@ -4,7 +4,7 @@ local WeldModule = require(game.ReplicatedStorage.Assets.WeldModule)
 
 function module.DoorMovementCreationOperation(model)
 	for i,v in model:GetChildren() do
-		if not v:IsA("Script") and v ~= model.PrimaryPart and v.Name ~= "M2" then
+		if not v:IsA("Script") and v ~= model.PrimaryPart and v.Name ~= "M2" and not v:IsA("Model") then
 			WeldModule.Weld(v, model.PrimaryPart, v, v.Name.."Weld")
 			v.Anchored = false
 		end
