@@ -7,6 +7,7 @@ local ProximityPromptService = game:GetService("ProximityPromptService")
 local UserInputService = game:GetService("UserInputService")
 -- Dependencies
 local DirectionalMovement = require(ReplicatedStorage.Shared.DirectionalMovement)
+local PromptHandler = require(ReplicatedStorage.PromptHandler)
 
 -- Local
 local player = Players.LocalPlayer
@@ -81,3 +82,5 @@ player.CharacterRemoving:Connect(function(character : Model?)
     crouchDebounce = false
 end)
 -- Prompt Handling
+
+ProximityPromptService.PromptShown:Connect(PromptHandler.PromptShown)
