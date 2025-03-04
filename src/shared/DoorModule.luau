@@ -1,6 +1,6 @@
 local module = {}
 
-local WeldModule = require(game.ReplicatedStorage.Assets.WeldModule)
+local WeldModule = require(game.ReplicatedStorage.Shared.WeldModule)
 
 function module.DoorMovementCreationOperation(model)
 	for i,v in model:GetChildren() do
