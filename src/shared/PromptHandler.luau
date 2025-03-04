@@ -8,7 +8,6 @@ local ProximityPromptService = game:GetService("ProximityPromptService")
 local TweenService = game:GetService("TweenService")
 local Players = game:GetService("Players")
 
-local Items = ReplicatedStorage.Shared.Prompts
 local Packets = require(ReplicatedStorage.Shared:WaitForChild("Packets"))
 
 -- Local
