@@ -4,7 +4,8 @@ local Item = {}
 
 function Item.Activated(data : {})
     print("Prompt1.luau activated")
-    print("Sigma sigma boy sigma boy sigma boy")
+    
+    print(data.promptName)
 end
 
 return Item

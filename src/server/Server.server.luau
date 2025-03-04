@@ -20,7 +20,7 @@ local function promptTriggered(data : {}, player : Player)
         local module = require(PromptItems[promptName])
 
         local extraPromptData = {
-
+            promptName
         }
 
         module.Activated(extraPromptData)
