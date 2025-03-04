@@ -15,7 +15,7 @@ function module.DoorOpeningOperaion(StatusValue, HingeMotor, HandleMotor)
 	if StatusValue.Value == true then
         HandleMotor.DesiredAngle = .6
 		HingeMotor.DesiredAngle = 1.6
-        wait(.1)
+        wait(.5)
         HandleMotor.DesiredAngle = 0
 	else
         HandleMotor.DesiredAngle = 0
