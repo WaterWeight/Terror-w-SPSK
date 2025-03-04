@@ -5,6 +5,10 @@ System zajmujący się obsługiwaniem promptow
 -- Service
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local ProximityPromptService = game:GetService("ProximityPromptService")
+local Players = game:GetService("Players")
+
+-- Local
+local player = Players.LocalPlayer
 
 local Prompt = {}
 
@@ -22,7 +26,10 @@ function Prompt.PromptShown(prompt : ProximityPrompt, inputType : Enum.Proximity
 
     -- Beam operations
 
+    local character : Model? = player.Character
+
     local beam : Beam = promptParent:FindFirstChild("Beam")
+    beam.Attachment1 = character:FindFirstChild("Torso")
 end
 
 function Prompt.PromptHidden(prompt : ProximityPrompt)
