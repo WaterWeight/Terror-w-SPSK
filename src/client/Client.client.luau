@@ -84,3 +84,4 @@ end)
 -- Prompt Handling
 
 ProximityPromptService.PromptShown:Connect(PromptHandler.PromptShown)
+ProximityPromptService.PromptHidden:Connect(PromptHandler.PromptHidden)
