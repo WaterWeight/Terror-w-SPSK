@@ -9,7 +9,7 @@ local UserInputService = game:GetService("UserInputService")
 local DirectionalMovement = require(ReplicatedStorage.Shared.DirectionalMovement)
 local PromptHandler = require(ReplicatedStorage.Shared.PromptHandler)
 
-local Packets = require(ReplicatedStorage.Dependencies:FindFirstChild("Packets"))
+local Packets = require(ReplicatedStorage.Shared:FindFirstChild("Packets"))
 
 -- Local
 local player = Players.LocalPlayer
