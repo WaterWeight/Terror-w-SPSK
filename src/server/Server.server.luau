@@ -42,8 +42,7 @@ Players.PlayerAdded:Connect(function(player : Player)
         -- When humanoid fires the .Died event (player died)
         character.Humanoid.Died:Connect(function()
 
-            local deathScreen = ReplicatedStorage.Assets:FindFirstChild("DeathScreen"):Clone()
-            deathScreen.Parent = player.PlayerGui
+            Packets.onDied.sendToAll({})
 
             task.wait(10)
 

@@ -23,7 +23,9 @@ local keyBinds = {
 
 local sprintDebounce = false
 local crouchDebounce = false
--- Functions
+
+--
+
 local function sprint(status : boolean)
     if status == true then
         -- Running
@@ -47,10 +49,10 @@ local function crouch(status : boolean)
         
     end
 end
--- Events
+
 RunService.RenderStepped:Connect(DirectionalMovement.stepped)
 
-
+-- UIS and Movement
 UserInputService.InputBegan:Connect(function(input : Instance, _gameProcessedEvent : boolean)
     if _gameProcessedEvent then return end
     local code = keyBinds[input.KeyCode]
@@ -76,10 +78,14 @@ UserInputService.InputEnded:Connect(function(input : Instance, _gameProcessedEve
     end
 end)
 
+-- When player is dying
 player.CharacterRemoving:Connect(function(character : Model?)
     print("Client - Removing Character")
     sprintDebounce = false
     crouchDebounce = false
+
+    local deathScreen = ReplicatedStorage.Assets:FindFirstChild("DeathScreen"):Clone() :: ScreenGui
+    deathScreen.Parent = player.PlayerGui
 end)
 -- Prompt Handling
 
