@@ -40,7 +40,7 @@ Players.PlayerAdded:Connect(function(player : Player)
 
         -- When humanoid fires the .Died event (player died)
         character.Humanoid.Died:Connect(function()
-            player:Kick("You've died stupid fellow")
+            player:Kick("Character died")
         end)
     end)
 end)
