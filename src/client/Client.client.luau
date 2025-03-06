@@ -4,6 +4,7 @@ local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local ProximityPromptService = game:GetService("ProximityPromptService")
+local TweenService  = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 -- Dependencies
 local DirectionalMovement = require(ReplicatedStorage.Shared.DirectionalMovement)
@@ -88,6 +89,9 @@ Packets.onDied.listen(function(data : {}, player : Player)
 
     local deathScreen = ReplicatedStorage.Assets:FindFirstChild("DeathScreen"):Clone() :: ScreenGui
     deathScreen.Parent = player.PlayerGui
+
+    local screenTween = TweenService:Create(deathScreen.Frame.Text, TweenInfo.new(.2), {TextSize = 100})
+    screenTween:Play()
 end)
 
 -- Prompt Handling
