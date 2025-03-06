@@ -91,12 +91,14 @@ Packets.onDied.listen(function(data : {}, player : Player)
     local deathScreen = ReplicatedStorage.Assets:FindFirstChild("DeathScreen"):Clone() :: ScreenGui
     deathScreen.Parent = Players.LocalPlayer.PlayerGui
 
+    local blurEffect = Lighting:FindFirstChild("ScreenBlur")
+    local blurTween = TweenService:Create(blurEffect, TweenInfo.new(5), {Size = 24})
+    blurTween:Play()
+
+    task.wait(4)
+
     local screenTween = TweenService:Create(deathScreen.Frame.Text, TweenInfo.new(.2), {TextSize = 100})
     screenTween:Play()
-
-    local blurEffect = Lighting:FindFirstChild("ScreenBlur")
-    local blurTween = TweenService:Create(blurEffect, TweenInfo.new(2), {Size = 24})
-    blurTween:Play()
 end)
 
 -- Prompt Handling
