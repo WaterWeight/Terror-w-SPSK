@@ -2,6 +2,7 @@
 -- Services
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local ServerStorage = game:GetService("ServerStorage")
+local TweenService = game:GetService("TweenService")
 local Players = game:GetService("Players")
 -- Dependencies
 local ByteNet = require(ReplicatedStorage.Dependencies.ByteNet)
@@ -40,6 +41,12 @@ Players.PlayerAdded:Connect(function(player : Player)
 
         -- When humanoid fires the .Died event (player died)
         character.Humanoid.Died:Connect(function()
+
+            local deathScreen = ReplicatedStorage.Assets:FindFirstChild("DeathScreen"):Clone()
+            deathScreen.Parent = player.PlayerGui
+
+            
+
             player:Kick("Character died")
         end)
     end)
