@@ -87,7 +87,7 @@ Packets.onDied.listen(function(data : {}, player : Player)
     crouchDebounce = false
 
     local deathScreen = ReplicatedStorage.Assets:FindFirstChild("DeathScreen"):Clone() :: ScreenGui
-    deathScreen.Parent = Players.LocalPlayer.PlayerGui
+    deathScreen.Parent = player.PlayerGui
 end)
 
 -- Prompt Handling

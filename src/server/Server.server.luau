@@ -42,7 +42,9 @@ Players.PlayerAdded:Connect(function(player : Player)
         -- When humanoid fires the .Died event (player died)
         character.Humanoid.Died:Connect(function()
 
-            Packets.onDied.sendToAll({})
+            Packets.onDied.sendToAll({
+                player = player,
+            })
 
             task.wait(10)
 
