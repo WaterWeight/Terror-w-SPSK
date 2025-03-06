@@ -45,7 +45,7 @@ Players.PlayerAdded:Connect(function(player : Player)
             local deathScreen = ReplicatedStorage.Assets:FindFirstChild("DeathScreen"):Clone()
             deathScreen.Parent = player.PlayerGui
 
-            
+            task.wait(10)
 
             player:Kick("Character died")
         end)
