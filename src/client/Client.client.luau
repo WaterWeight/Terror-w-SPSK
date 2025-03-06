@@ -9,6 +9,8 @@ local UserInputService = game:GetService("UserInputService")
 local DirectionalMovement = require(ReplicatedStorage.Shared.DirectionalMovement)
 local PromptHandler = require(ReplicatedStorage.Shared.PromptHandler)
 
+local Packets = require(ReplicatedStorage.Dependencies:FindFirstChild("Packets"))
+
 -- Local
 local player = Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
@@ -79,7 +81,7 @@ UserInputService.InputEnded:Connect(function(input : Instance, _gameProcessedEve
 end)
 
 -- When player is dying
-player.CharacterRemoving:Connect(function(character : Model?)
+Packets.onDied.listen(function(data : {}, player : Player)
     print("Client - Removing Character")
     sprintDebounce = false
     crouchDebounce = false
@@ -87,6 +89,7 @@ player.CharacterRemoving:Connect(function(character : Model?)
     local deathScreen = ReplicatedStorage.Assets:FindFirstChild("DeathScreen"):Clone() :: ScreenGui
     deathScreen.Parent = player.PlayerGui
 end)
+
 -- Prompt Handling
 
 ProximityPromptService.PromptShown:Connect(PromptHandler.PromptShown)
