@@ -6,6 +6,7 @@ local Players = game:GetService("Players")
 local ProximityPromptService = game:GetService("ProximityPromptService")
 local TweenService  = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
+local Lighting = game:GetService("Lighting")
 -- Dependencies
 local DirectionalMovement = require(ReplicatedStorage.Shared.DirectionalMovement)
 local PromptHandler = require(ReplicatedStorage.Shared.PromptHandler)
@@ -92,6 +93,10 @@ Packets.onDied.listen(function(data : {}, player : Player)
 
     local screenTween = TweenService:Create(deathScreen.Frame.Text, TweenInfo.new(.2), {TextSize = 100})
     screenTween:Play()
+
+    local blurEffect = Lighting:FindFirstChild("ScreenBlur")
+    local blurTween = TweenService:Create(blurEffect, TweenInfo.new(2), {Size = 24})
+    blurTween:Play()
 end)
 
 -- Prompt Handling
