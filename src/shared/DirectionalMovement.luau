@@ -103,6 +103,10 @@ function DM.stepped(dt)
 			continue
 		end
 
+		if not character:FindFirstChild("Right Hip") then
+			return
+		end
+
 		Calculate(dt, humanoidRootPart, humanoid, torso)
 
 	end
