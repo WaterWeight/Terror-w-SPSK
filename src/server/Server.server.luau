@@ -12,7 +12,7 @@ local PromptItems = ServerStorage.Storage.Prompts
 -- Functions
 
 local function promptTriggered(data : {}, player : Player)
-    print(data)
+    --print(data)
 
 	local promptName = data.promptName :: string
 	local prompt = data.promptInstance :: Instance
