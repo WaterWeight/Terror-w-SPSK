@@ -47,7 +47,7 @@ function Module.getPath(destination, Character)
 	
 	local pathParams = {
 		["AgentHeight"] = 12,--15,
-		["AgentRadius"] = 10,--4,
+		["AgentRadius"] = 9,--4,
 		["AgentCanJump"] = false
 	}
 	
