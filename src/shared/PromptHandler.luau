@@ -77,9 +77,11 @@ function Prompt.PromptHoldBegan(prompt : ProximityPrompt, player : Player)
             promptCooldown[1] = true
 
             print(prompt.Name .. " Prompt triggered")
+            print(prompt)
 
             Packets.promptTriggered.send({
-                promptName = prompt.Name
+                promptName = prompt.Name,
+                promptInstance = prompt
             })
 
             task.wait(promptCooldown[2])

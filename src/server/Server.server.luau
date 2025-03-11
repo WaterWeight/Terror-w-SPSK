@@ -14,13 +14,15 @@ local PromptItems = ServerStorage.Storage.Prompts
 local function promptTriggered(data : {}, player : Player)
     print(data)
 
-    local promptName = data.promptName :: string
+	local promptName = data.promptName :: string
+	local prompt = data.promptInstance :: Instance
 
     if PromptItems[promptName] then
         local module = require(PromptItems[promptName])
 
         local extraPromptData = {
-            name = promptName
+			name = promptName,
+			promptInstance = prompt
         }
 
         module.Activated(extraPromptData)
@@ -32,8 +34,10 @@ end
 -- Fires when player joins the game
 Players.PlayerAdded:Connect(function(player : Player)
 	
-	local cloneGUI = ReplicatedStorage.Assets["LoadingGui-Fake"]:Clone()
-	cloneGUI.Parent = player.PlayerGui
+	if not game:GetService("RunService"):IsStudio() then
+		local cloneGUI = ReplicatedStorage.Assets["LoadingGui-Fake"]:Clone()
+		cloneGUI.Parent = player.PlayerGui
+	end
 
     -- When adding character (player spawns in)
     player.CharacterAdded:Connect(function(character : Model?)
