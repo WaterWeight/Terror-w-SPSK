@@ -4,10 +4,14 @@ local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local ProximityPromptService = game:GetService("ProximityPromptService")
+local TweenService  = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
+local Lighting = game:GetService("Lighting")
 -- Dependencies
 local DirectionalMovement = require(ReplicatedStorage.Shared.DirectionalMovement)
 local PromptHandler = require(ReplicatedStorage.Shared.PromptHandler)
+
+local Packets = require(ReplicatedStorage.Shared:FindFirstChild("Packets"))
 
 -- Local
 local player = Players.LocalPlayer
@@ -23,7 +27,9 @@ local keyBinds = {
 
 local sprintDebounce = false
 local crouchDebounce = false
--- Functions
+
+--
+
 local function sprint(status : boolean)
     if status == true then
         -- Running
@@ -47,10 +53,10 @@ local function crouch(status : boolean)
         
     end
 end
--- Events
+
 RunService.RenderStepped:Connect(DirectionalMovement.stepped)
 
-
+-- UIS and Movement
 UserInputService.InputBegan:Connect(function(input : Instance, _gameProcessedEvent : boolean)
     if _gameProcessedEvent then return end
     local code = keyBinds[input.KeyCode]
@@ -76,11 +82,25 @@ UserInputService.InputEnded:Connect(function(input : Instance, _gameProcessedEve
     end
 end)
 
-player.CharacterRemoving:Connect(function(character : Model?)
+-- When player is dying
+Packets.onDied.listen(function(data : {}, player : Player)
     print("Client - Removing Character")
     sprintDebounce = false
     crouchDebounce = false
+
+    local deathScreen = ReplicatedStorage.Assets:FindFirstChild("DeathScreen"):Clone() :: ScreenGui
+    deathScreen.Parent = Players.LocalPlayer.PlayerGui
+
+    local blurEffect = Lighting:FindFirstChild("ScreenBlur")
+    local blurTween = TweenService:Create(blurEffect, TweenInfo.new(5), {Size = 24})
+    blurTween:Play()
+
+    task.wait(4)
+
+    local screenTween = TweenService:Create(deathScreen.Frame.Text, TweenInfo.new(.2), {TextSize = 100})
+    screenTween:Play()
 end)
+
 -- Prompt Handling
 
 ProximityPromptService.PromptShown:Connect(PromptHandler.PromptShown)
