@@ -18,6 +18,8 @@ local player = Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:FindFirstChildOfClass("Humanoid")
 
+local mouse = player:GetMouse()
+
 local sprintCooldown = 2
 
 local keyBinds = {
@@ -28,7 +30,10 @@ local keyBinds = {
 local sprintDebounce = false
 local crouchDebounce = false
 
---
+-- Functionality
+
+-- Mouse icon
+mouse.Icon = "rbxassetid://12920788784"
 
 local function sprint(status : boolean)
     if status == true then
