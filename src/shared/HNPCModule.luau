@@ -8,7 +8,7 @@ local Module = {}
 -- Functions
 function Module.canSeeTarget(target, Character)
 	local origin = Character.HumanoidRootPart.Position
-	local direction = (target.HumanoidRootPart.Position - Character.HumanoidRootPart.Position).unit * 40
+	local direction = (target.HumanoidRootPart.Position - Character.HumanoidRootPart.Position).Unit * 40
 	local ray = Ray.new(origin, direction)
 	
 	local hit, pos = workspace:FindPartOnRay(ray, Character)
