@@ -33,7 +33,7 @@ local crouchDebounce = false
 -- Functionality
 
 -- Mouse icon
-mouse.Icon = "rbxassetid://12920788784"
+mouse.Icon = "http://www.roblox.com/asset/?id=12920788753"
 
 local function sprint(status : boolean)
     if status == true then
