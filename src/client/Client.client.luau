@@ -39,7 +39,7 @@ local function sprint(status : boolean)
     if status == true then
         -- Running
         if sprintDebounce == true then return end
-        humanoid.WalkSpeed = 16
+        humanoid.WalkSpeed = 18
         sprintDebounce = true
     else
         -- NO RUNNING1!! NO NO NO NO NO
