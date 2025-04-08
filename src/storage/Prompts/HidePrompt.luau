@@ -10,7 +10,7 @@ function Item.Activated(data : {})
 
     local partToWeld = prompt.Parent
 
-    print(Players:GetPlayers())
+    print(Players:GetPlayers()[1])
 end
 
 return Item
