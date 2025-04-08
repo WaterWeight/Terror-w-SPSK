@@ -7,7 +7,8 @@ return ByteNet.defineNamespace("messaging", function()
             value = ByteNet.struct({
                 player = ByteNet.inst,
                 promptName = ByteNet.string,
-                promptInstance = ByteNet.inst
+                promptInstance = ByteNet.inst,
+                status = ByteNet.boolean,
             })
         }),
         onDied = ByteNet.definePacket({

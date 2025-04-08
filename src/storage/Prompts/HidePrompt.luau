@@ -4,7 +4,8 @@ local Players = game:GetService("Players")
 local Item = {}
 
 function Item.Activated(data : {})
-    print("HidePrompt.luau activated")
+    if data.status == true then
+        print("HidePrompt.luau activated")
     
     local prompt = data.promptInstance :: ProximityPrompt
 
@@ -16,6 +17,9 @@ function Item.Activated(data : {})
     character:PivotTo(partToWeld.CFrame)
 
     humanoidRootPart.Anchored = true
+    else
+        
+    end
 end
 
 return Item

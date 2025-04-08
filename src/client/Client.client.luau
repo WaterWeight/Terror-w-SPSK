@@ -24,7 +24,7 @@ local sprintCooldown = 2
 
 local keyBinds = {
     [Enum.KeyCode.LeftShift] = "Sprint",
-    [Enum.KeyCode.LeftControl] = "Crouch"
+    [Enum.KeyCode.Space] = "Exit"
 }
 
 local sprintDebounce = false
@@ -49,14 +49,11 @@ local function sprint(status : boolean)
     end
 end
 
-local function crouch(status : boolean)
-    if crouchDebounce == true then return end
-
-    if status == true then
-        
-    else
-        
-    end
+local function exit()
+    Packets.promptTriggered.send({
+        promptName = "HidePrompt",
+        status = false
+    })
 end
 
 RunService.RenderStepped:Connect(DirectionalMovement.stepped)
@@ -69,8 +66,8 @@ UserInputService.InputBegan:Connect(function(input : Instance, _gameProcessedEve
         print(code .. "Input Began")
         if code == "Sprint" then
             sprint(true)
-        elseif code == "Crouch" then
-            crouch(true)
+        elseif code == "Exit" then
+            exit()
         end
     end
 end)
@@ -81,8 +78,6 @@ UserInputService.InputEnded:Connect(function(input : Instance, _gameProcessedEve
         print(code .. "Input Ended")
         if code == "Sprint" then
             sprint(false)
-        elseif code == "Crouch" then
-            crouch(false)
         end
     end
 end)
