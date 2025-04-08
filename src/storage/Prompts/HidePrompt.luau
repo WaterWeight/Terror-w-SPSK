@@ -9,10 +9,12 @@ function Item.Activated(data : {})
     
     local prompt = data.promptInstance :: ProximityPrompt
 
-    local partToWeld = prompt.Parent
+    local partToWeld = prompt.Parent :: Part
 
     local character = player.Character or player.CharacterAdded:Wait()
     local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+
+    character:PivotTo(partToWeld.CFrame)
 end
 
 return Item
