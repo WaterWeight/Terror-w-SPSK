@@ -43,7 +43,7 @@ local function sprint(status : boolean)
         sprintDebounce = true
     else
         -- NO RUNNING1!! NO NO NO NO NO
-        humanoid.WalkSpeed = 10
+        humanoid.WalkSpeed = 8
         task.wait(sprintCooldown)
         sprintDebounce = false
     end
