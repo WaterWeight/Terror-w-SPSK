@@ -1,4 +1,3 @@
---!strict
 local DM = {}
 -- Service
 local Players = game:GetService("Players")
