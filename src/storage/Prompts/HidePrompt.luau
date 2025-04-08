@@ -1,4 +1,5 @@
 --!strict
+local Players = game:GetService("Players")
 
 local Item = {}
 
@@ -9,7 +10,7 @@ function Item.Activated(data : {})
 
     local partToWeld = prompt.Parent
 
-    
+    print(Players:GetPlayers())
 end
 
 return Item
