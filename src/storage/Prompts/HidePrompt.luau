@@ -1,6 +1,5 @@
 --!strict
 local Players = game:GetService("Players")
-local player = Players[1] :: Player
 
 local Item = {}
 
@@ -11,7 +10,7 @@ function Item.Activated(data : {})
 
     local partToWeld = prompt.Parent :: Part
 
-    local character = player.Character or player.CharacterAdded:Wait()
+    local character = Players:GetPlayers()[1].Character
     local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
 
     character:PivotTo(partToWeld.CFrame)
