@@ -3,7 +3,7 @@
 local Item = {}
 
 function Item.Activated(data : {})
-    print("Prompt1.luau activated")
+    print("HidePrompt.luau activated")
     
     print(data.name)
 end
