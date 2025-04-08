@@ -11,9 +11,11 @@ function Item.Activated(data : {})
     local partToWeld = prompt.Parent :: Part
 
     local character = Players:GetPlayers()[1].Character
-    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart") :: Part
 
     character:PivotTo(partToWeld.CFrame)
+
+    humanoidRootPart.Anchored = true
 end
 
 return Item
