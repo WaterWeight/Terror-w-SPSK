@@ -13,12 +13,15 @@ function module.CSCameraOff(player)
     local Humanoid = player.Character.Humanoid
     Humanoid.WalkSpeed = PlayerWalkSpeed
     Camera.CameraType = Enum.CameraType.Custom
+    Camera.HeadLocked = true
     player.Character.Character.VIewBobbing.Enabled = true
 end
 function module.CSCameraOn(player)
     local Humanoid = player.Character.Humanoid
     Humanoid.WalkSpeed = 0
     Camera.CameraType = Enum.CameraType.Scriptable
+    Camera.HeadLocked = false
+    print(Camera.HeadLocked)
     player.Character.Character.VIewBobbing.Enabled = false
 end
 
@@ -28,7 +31,6 @@ function module.CSTween(Part, Time, EasingStyle, EasingDirection)
     local Tween = TweenService:Create(Camera, TweenInformation, {CFrame = Part.CFrame})
     Tween:Play()
     Tween.Completed:Wait()
-    print("Finished")
 end
 
 function module.CSSet(Part, Time)

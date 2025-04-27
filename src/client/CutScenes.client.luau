@@ -8,9 +8,11 @@ local Module = require(ReplicatedStorage:WaitForChild("Shared").CutscenesModule)
 
 Event.OnClientEvent:Connect(function(operationType, part, time, easingStyle, easingDirection)
     if operationType == "Turn CS Camera On" then
+        Players.LocalPlayer.PlayerScripts.Client.Client.Enabled = false
         Module.CSCameraOn(Players.LocalPlayer)
     elseif operationType == "Turn CS Camera Off" then
         Module.CSCameraOff(Players.LocalPlayer)
+        Players.LocalPlayer.PlayerScripts.Client.Client.Enabled = true
     elseif operationType == "Tween CS Camera" then
         Module.CSTween(part, time, easingStyle, easingDirection)
     elseif  operationType == "Set CS Camera" then

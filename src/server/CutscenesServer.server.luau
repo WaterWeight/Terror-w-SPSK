@@ -26,6 +26,8 @@ local Operations = {
 }
 --operationType, part, time, easingStyle, easingDirection
 
+Player.PlayerGui.Overlay.Enabled = false
+Player.Character.Torso.Anchored = true
 Event:FireClient(Player, Operations[1])
 Event:FireClient(Player, Operations[4], CSFolder.Introduction["1"], 2.6)
 wait(2)
@@ -40,7 +42,13 @@ Event:FireClient(Player, Operations[4], CSFolder.Introduction["3"], 2)
 wait(5)
 Event:FireClient(Player, Operations[4], CSFolder.Introduction["4"], 2)
 wait(5)
-Event:FireClient(Player, Operations[3], CSFolder.Introduction["5"], 7, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
-wait(10)
+Event:FireClient(Player, Operations[3], CSFolder.Introduction["5"], 7, Enum.EasingStyle.Linear  , Enum.EasingDirection.In)
+wait(6.9)
+Event:FireClient(Player, Operations[3], CSFolder.Introduction["6"], 3, Enum.EasingStyle.Linear, Enum.EasingDirection.In)
+wait(4)
+Event:FireClient(Player, Operations[3], Player.Character.Head, 3, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+wait(3)
+Player.Character.Torso.Anchored = false
 Event:FireClient(Player, Operations[2])
+Player.PlayerGui.Overlay.Enabled = true
 --CSFolder.Introduction[1]
