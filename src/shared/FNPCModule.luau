@@ -8,8 +8,8 @@ local Module = {}
 -- Functions
 function Module.getPath(destination, Character)
 	local pathParams = {
-		["AgentHeight"] = 5.3,
-		["AgentRadius"] = 4.1,
+		["AgentHeight"] = 2,
+		["AgentRadius"] = 1,
 		["AgentCanJump"] = true
 	}
 	local path = PathfindingService:CreatePath()
