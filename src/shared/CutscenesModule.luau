@@ -13,11 +13,13 @@ function module.CSCameraOff(player)
     local Humanoid = player.Character.Humanoid
     Humanoid.WalkSpeed = PlayerWalkSpeed
     Camera.CameraType = Enum.CameraType.Custom
+    player.Character.Character.VIewBobbing.Enabled = true
 end
 function module.CSCameraOn(player)
     local Humanoid = player.Character.Humanoid
     Humanoid.WalkSpeed = 0
     Camera.CameraType = Enum.CameraType.Scriptable
+    player.Character.Character.VIewBobbing.Enabled = false
 end
 
 function module.CSTween(Part, Time, EasingStyle, EasingDirection)
@@ -27,6 +29,16 @@ function module.CSTween(Part, Time, EasingStyle, EasingDirection)
     Tween:Play()
     Tween.Completed:Wait()
     print("Finished")
+end
+
+function module.CSSet(Part, Time)
+    Camera.CFrame = Part.CFrame
+    wait(Time)
+end
+
+function module.CSSetToObject(Part, Time)
+    Camera.CameraSubject = Part
+    wait(Time)
 end
 
 return module
