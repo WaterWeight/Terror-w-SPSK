@@ -6,6 +6,8 @@ local Players = game:GetService("Players")
 
 local Event = ReplicatedStorage.CutsceneRemoteEvent
 
+local Module = require(ReplicatedStorage.Shared.FNPCModule)
+
 local CSFolder = Workspace.CutscenesStuff
 
 wait(1)
@@ -37,6 +39,7 @@ wait(.6)
 CSFolder.Introduction["2"].Obj.Value.Parent.Script.Status.Value = true
 CSFolder.Introduction["1"]:Destroy()
 Event:FireClient(Player, Operations[4], CSFolder.Introduction["2"], 2)
+CSFolder.Introduction.DisposableNPCs.GoodToGo.Value = true
 wait(1)
 CSFolder.Introduction["2"]:Destroy()
 Event:FireClient(Player, Operations[4], CSFolder.Introduction["3"], 2)
