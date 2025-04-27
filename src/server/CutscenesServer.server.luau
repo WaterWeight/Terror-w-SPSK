@@ -33,7 +33,8 @@ Event:FireClient(Player, Operations[4], CSFolder.Introduction["1"], 2.6)
 wait(2)
 CSFolder.Introduction["2"].Obj.Value.Parent.M1.HandleMotor.DesiredAngle = .6
 wait(.6)
-CSFolder.Introduction["2"].Obj.Value.Parent.M1.HingeMotor.DesiredAngle = 1.6
+--CSFolder.Introduction["2"].Obj.Value.Parent.M1.HingeMotor.DesiredAngle = 1.6
+CSFolder.Introduction["2"].Obj.Value.Parent.Script.Status.Value = true
 CSFolder.Introduction["1"]:Destroy()
 Event:FireClient(Player, Operations[4], CSFolder.Introduction["2"], 2)
 wait(1)
@@ -51,4 +52,5 @@ wait(3)
 Player.Character.Torso.Anchored = false
 Event:FireClient(Player, Operations[2])
 Player.PlayerGui.Overlay.Enabled = true
+CSFolder.Introduction:Destroy()
 --CSFolder.Introduction[1]
