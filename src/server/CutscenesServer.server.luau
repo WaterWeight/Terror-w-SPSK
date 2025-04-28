@@ -56,6 +56,6 @@ wait(3)
 Player.Character.Torso.Anchored = false
 Event:FireClient(Player, Operations[2])
 Player.PlayerGui.Overlay.Enabled = true
-CSFolder.Introduction.DisposableNPCs.GoodToGo.Value.Value.CanCollide = true
+CSFolder.Introduction.DisposableNPCs.GoodToGo.Object.Value.CanCollide = true
 CSFolder.Introduction:Destroy()
 --CSFolder.Introduction[1]
