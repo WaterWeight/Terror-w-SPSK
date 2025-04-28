@@ -35,10 +35,10 @@ end
 -- Fires when player joins the game
 Players.PlayerAdded:Connect(function(player : Player)
 	
-	--if not game:GetService("RunService"):IsStudio() then
+	if not game:GetService("RunService"):IsStudio() then
 		local cloneGUI = ReplicatedStorage.Assets["LoadingGui-Fake"]:Clone()
 		cloneGUI.Parent = player.PlayerGui
-	--end
+	end
 
     -- When adding character (player spawns in)
     player.CharacterAdded:Connect(function(character : Model?)

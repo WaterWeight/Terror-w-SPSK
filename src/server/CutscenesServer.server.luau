@@ -28,6 +28,9 @@ local Operations = {
 }
 --operationType, part, time, easingStyle, easingDirection
 
+
+--Introduction
+if game:GetService("RunService"):IsStudio() then
 Player.PlayerGui.Overlay.Enabled = false
 Player.Character.Torso.Anchored = true
 Event:FireClient(Player, Operations[1])
@@ -59,4 +62,4 @@ Event:FireClient(Player, Operations[2])
 Player.PlayerGui.Overlay.Enabled = true
 CSFolder.Introduction.DisposableNPCs.GoodToGo.Object.Value.CanCollide = true
 CSFolder.Introduction:Destroy()
---CSFolder.Introduction[1]
+end
