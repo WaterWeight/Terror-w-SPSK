@@ -1,7 +1,7 @@
 --!strict
-
+--1153 with maps
 local Item = {}
-local CameraModule = require(script.Parent.CameraModule)
+local CameraModule = require(game.ReplicatedStorage.Shared.CutscenesModule)
 
 function Item.Activated(data : {})
 	
