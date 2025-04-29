@@ -30,7 +30,7 @@ local Operations = {
 
 
 --Introduction
-if game:GetService("RunService"):IsStudio() then
+if not game:GetService("RunService"):IsStudio() then
 Player.PlayerGui.Overlay.Enabled = false
 Player.Character.Torso.Anchored = true
 Event:FireClient(Player, Operations[1])
