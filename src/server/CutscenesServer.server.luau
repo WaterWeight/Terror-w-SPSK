@@ -47,7 +47,7 @@ wait(1)
 Event:FireClient(Player, Operations[4], CSFolder.Introduction["3"], 2)
 wait(5)
 Event:FireClient(Player, Operations[4], CSFolder.Introduction["4"], 2)
-wait(5)
+wait(3.5)
 CSFolder.Introduction["5"].Object.Value.Value = true
 Event:FireClient(Player, Operations[3], CSFolder.Introduction["5"], 7, Enum.EasingStyle.Linear  , Enum.EasingDirection.In)
 wait(6.9)
