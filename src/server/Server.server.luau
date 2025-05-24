@@ -60,3 +60,11 @@ end)
 -- Prompts
 
 Packets.promptTriggered.listen(promptTriggered)
+
+ReplicatedStorage.DialogueEvents.DialogueEnd.onServerEvent:Connect(function()
+    if Players:GetPlayers() then
+        if Players:GetPlayers()[1].Character.Torso:FindFirstChild("DialogueWeld") then
+                Players:GetPlayers()[1].Character.Torso.DialogueWeld:Destroy()
+        end
+    end
+end)

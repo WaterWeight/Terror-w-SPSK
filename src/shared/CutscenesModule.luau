@@ -2,27 +2,29 @@ local module = {}
 
 -- Service
 local TweenService = game:GetService("TweenService")
-
+local Players = game:GetService("Players")
 
 local WeldModule = require(game.ReplicatedStorage.Shared.WeldModule)
-local PlayerWalkSpeed = game.StarterPlayer.CharacterWalkSpeed
+local MovementControls = require(Players.LocalPlayer.PlayerScripts.PlayerModule):GetControls()
 local Camera = game.Workspace:WaitForChild("Camera")
 
 -- Functions
 function module.CSCameraOff(player)
-    local Humanoid = player.Character.Humanoid
-    Humanoid.WalkSpeed = PlayerWalkSpeed
+    MovementControls:Enable()
+    player.CameraMode = Enum.CameraMode.LockFirstPerson
     Camera.CameraType = Enum.CameraType.Custom
     Camera.HeadLocked = true
     player.Character.Character.VIewBobbing.Enabled = true
 end
 function module.CSCameraOn(player)
-    local Humanoid = player.Character.Humanoid
-    Humanoid.WalkSpeed = 0
+    MovementControls:Disable()
+    player.CameraMode = Enum.CameraMode.Classic
     Camera.CameraType = Enum.CameraType.Scriptable
     Camera.HeadLocked = false
-    print(Camera.HeadLocked)
     player.Character.Character.VIewBobbing.Enabled = false
+end
+function  module.WeldToSomething(player, object)
+    WeldModule.Weld(player.Character.Torso, player.Character.Torso, object.Torso, "DialogueWeld")
 end
 
 function module.CSTween(Part, Time, EasingStyle, EasingDirection)

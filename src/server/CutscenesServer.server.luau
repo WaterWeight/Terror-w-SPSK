@@ -10,7 +10,7 @@ local Module = require(ReplicatedStorage.Shared.FNPCModule)
 
 local CSFolder = Workspace.CutscenesStuff
 
---wait(1)
+wait(1)
 local Player = Players:GetPlayers()[1]
 
 --wait(4)
@@ -30,8 +30,9 @@ local Operations = {
 
 
 --Introduction
-if game:GetService("RunService"):IsStudio() then
+--if game:GetService("RunService"):IsStudio() then
 Player.PlayerGui.Overlay.Enabled = false
+Player.PlayerGui.BlackFrame:Destroy()
 Player.Character.Torso.Anchored = true
 Event:FireClient(Player, Operations[1])
 Event:FireClient(Player, Operations[4], CSFolder.Introduction["1"], 2.6)
@@ -58,8 +59,12 @@ Event:FireClient(Player, Operations[3], Player.Character.Head, 3, Enum.EasingSty
 CSFolder.Introduction["1"].Bell.Value:Stop()
 wait(3)
 Player.Character.Torso.Anchored = false
+Event:FireClient(Player, Operations[4], Player.Character.Head, 0)
 Event:FireClient(Player, Operations[2])
 Player.PlayerGui.Overlay.Enabled = true
 CSFolder.Introduction.DisposableNPCs.GoodToGo.Object.Value.CanCollide = true
 CSFolder.Introduction:Destroy()
-end
+Player.PlayerGui.QuestUI.MainFrame.TaskName.Text = "ODZYSKAJ KURTKĘ"
+Player.PlayerGui.QuestUI.MainFrame.TaskDescription.Text = "Udaj się do szatni w piwnicy po swoją kurtke."
+Player.PlayerGui.QuestUI.Activation.Value = true
+--end
