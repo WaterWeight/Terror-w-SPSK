@@ -36,8 +36,10 @@ function module.CSTween(Part, Time, EasingStyle, EasingDirection)
 end
 
 function module.CSSet(Part, Time)
-    Camera.CFrame = Part.CFrame
-    wait(Time)
+    if Part then
+        Camera.CFrame = Part.CFrame
+        wait(Time)
+    end
 end
 
 function module.CSSetToObject(Part, Time)
